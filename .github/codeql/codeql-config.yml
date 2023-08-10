@@ -2,3 +2,5 @@ name: "CodeQL config"
 queries:
   - uses: security-and-quality
   - uses: security-extended
+paths:
+  - platform/innovium/sonic-platform-modules-supermicro
