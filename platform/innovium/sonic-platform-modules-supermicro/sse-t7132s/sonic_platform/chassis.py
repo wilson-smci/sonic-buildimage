@@ -55,7 +55,6 @@ class Chassis(ChassisBase):
         ChassisBase.__init__(self)
         self._eeprom = Tlv()
         self._api_helper = APIHelper()
-        self.sfp_module_initialized = False
 
         for fant_index in range(NUM_FAN_TRAY):
             fandrawer = FanDrawer(fant_index)
@@ -71,12 +70,9 @@ class Chassis(ChassisBase):
         for index in range(0, NUM_THERMAL):
             thermal = Thermal(index)
             self._thermal_list.append(thermal)
+        self.__initialize_sfp()
 
     def __initialize_sfp(self):
-        if self.sfp_module_initialized:
-            return
-        self.sfp_module_initialized = True
-
         self.num_sfp = NUM_SFP
 
         from portconfig import get_port_config
@@ -262,9 +258,6 @@ class Chassis(ChassisBase):
         Returns:
             An integer, the number of sfps available on this chassis
         """
-        if not self.sfp_module_initialized:
-            self.__initialize_sfp()
-
         return len(self._sfp_list)
 
     def get_all_sfps(self):
@@ -274,9 +267,6 @@ class Chassis(ChassisBase):
             A list of objects derived from SfpBase representing all sfps
             available on this chassis
         """
-        if not self.sfp_module_initialized:
-            self.__initialize_sfp()
-
         return self._sfp_list
 
     def get_sfp(self, index):
@@ -293,8 +283,6 @@ class Chassis(ChassisBase):
             An object dervied from SfpBase representing the specified sfp
         """
         sfp = None
-        if not self.sfp_module_initialized:
-            self.__initialize_sfp()
 
         try:
             # The index will start from 0
