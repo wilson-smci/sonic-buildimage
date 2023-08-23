@@ -180,6 +180,34 @@ class Fan(FanBase):
         """
         return SPEED_TOLERANCE
 
+    def is_under_speed(self):
+        """
+        Calculates if the fan speed is under the tolerated low speed threshold
+        Default calculation requires get_speed_tolerance to be implemented, and checks
+        if the current fan speed (expressed as a percentage) is lower than <get_speed_tolerance>
+        percent below the target fan speed (expressed as a percentage)
+        Returns:
+            A boolean, True if fan speed is under the low threshold, False if not
+        """
+        if self.is_psu_fan:
+            # not support
+            return False
+        return super().is_under_speed()
+
+    def is_over_speed(self):
+        """
+        Calculates if the fan speed is over the tolerated high speed threshold
+        Default calculation requires get_speed_tolerance to be implemented, and checks
+        if the current fan speed (expressed as a percentage) is higher than <get_speed_tolerance>
+        percent above the target fan speed (expressed as a percentage)
+        Returns:
+            A boolean, True if fan speed is over the high threshold, False if not
+        """
+        if self.is_psu_fan:
+            # not support
+            return False
+        return super().is_over_speed()
+
     def set_speed(self, speed):
         """
         Sets the fan speed
