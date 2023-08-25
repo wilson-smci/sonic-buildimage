@@ -4,13 +4,10 @@ on:
   pull_request: {}
   push:
     branches:
-      - master
-      - '201[7-9][0-1][0-9]'
-      - '202[0-9][0-1][0-9]'
+      - enhancement_7132s
 
 jobs:
   semgrep:
-    if: github.repository_owner == 'sonic-net'
     name: Semgrep
     runs-on: ubuntu-latest
     container:
