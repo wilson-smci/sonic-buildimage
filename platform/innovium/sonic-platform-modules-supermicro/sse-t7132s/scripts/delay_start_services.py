@@ -14,7 +14,7 @@ class DelayStart():
         syslog.openlog(logoption=syslog.LOG_PID)
         syslog.syslog("starting sfp-max-temp-updater.service")
         p = subprocess.run(["/usr/bin/systemctl start sfp-max-temp-updater.service"],
-                           capture_output=True, shell=True, text=True)
+                           capture_output=True, text=True)
         syslog.syslog(f"{p}")
 
         syslog.syslog("Finished delay start")
