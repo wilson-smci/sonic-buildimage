@@ -331,10 +331,15 @@ j2 -f json $BUILD_TEMPLATES/rsyslog_plugin.conf.j2 $BUILD_TEMPLATES/events_info.
 sudo cp $BUILD_TEMPLATES/monit_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
 sudo cp $BUILD_TEMPLATES/sshd_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
 sudo cp $BUILD_TEMPLATES/systemd_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
-sudo cp $BUILD_TEMPLATES/syncd_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
 sudo cp $BUILD_TEMPLATES/kernel_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
 sudo cp $BUILD_TEMPLATES/dockerd_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
 sudo cp $BUILD_TEMPLATES/seu_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
+sudo cp $BUILD_TEMPLATES/zebra_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
+sudo cp $BUILD_TEMPLATES/bgpd_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
+
+
+j2 -f json $BUILD_TEMPLATES/rsyslog_plugin.conf.j2 $BUILD_TEMPLATES/syncd_events_info.json | sudo tee $FILESYSTEM_ROOT_ETC/rsyslog.d/syncd_events.conf
+sudo cp $BUILD_TEMPLATES/syncd_regex.json $FILESYSTEM_ROOT_ETC/rsyslog.d/
 
 # Install custom-built monit package and SONiC configuration files
 sudo dpkg --root=$FILESYSTEM_ROOT -i $debs_path/monit_*.deb || \
@@ -806,6 +811,7 @@ echo "kubernetes master docker images pull complete"
 sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 install psutil
 sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 install statsd
 sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 install kubernetes
+sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 install pyOpenSSL
 # Install python packages to upload and download etcd backup files for backup and restore service usage
 sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 install azure-storage-blob azure-identity
 sudo LANG=C chroot $FILESYSTEM_ROOT systemctl enable kubelet.service

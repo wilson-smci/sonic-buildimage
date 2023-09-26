@@ -24,9 +24,9 @@ autopoint==0.21-4
 autotools-dev==20180224.1+nmu1
 bash-completion==1:2.11-2
 bc==1.07.1-2+b2
-bind9-dnsutils==1:9.16.42-1~deb11u1
-bind9-host==1:9.16.42-1~deb11u1
-bind9-libs==1:9.16.42-1~deb11u1
+bind9-dnsutils==1:9.16.44-1~deb11u1
+bind9-host==1:9.16.44-1~deb11u1
+bind9-libs==1:9.16.44-1~deb11u1
 binfmt-support==2.2.1-1+deb11u1
 binutils==2.35.2-2
 binutils-common==2.35.2-2
@@ -39,7 +39,7 @@ byacc==20140715-1+b1
 bzip2==1.0.8-4
 bzip2-doc==1.0.8-4
 ca-certificates==20210119
-ca-certificates-java==20190909
+ca-certificates-java==20190909+deb11u1
 cdbs==0.4.163
 check==0.15.2-2
 chrpath==0.16-2+b1
@@ -91,7 +91,7 @@ distro-info-data==0.51+deb11u3
 dkms==2.8.4-3
 dmeventd==2:1.02.175-2.1
 dmsetup==2:1.02.175-2.1
-dnsutils==1:9.16.42-1~deb11u1
+dnsutils==1:9.16.44-1~deb11u1
 docbook==4.5-6
 docbook-dsssl==1.79-9.2
 docbook-to-man==1:2.0.0-45
@@ -101,7 +101,7 @@ docbook-xsl==1.79.2+dfsg-1
 docker-buildx-plugin==0.10.5-1~debian.11~bullseye
 docker-ce==5:24.0.2-1~debian.11~bullseye
 docker-ce-cli==5:24.0.2-1~debian.11~bullseye
-docker-ce-rootless-extras==5:24.0.5-1~debian.11~bullseye
+docker-ce-rootless-extras==5:24.0.6-1~debian.11~bullseye
 docker-compose-plugin==2.18.1-1~debian.11~bullseye
 docutils-common==0.16+dfsg-4
 dosfstools==4.2-1
@@ -126,7 +126,7 @@ exim4-config==4.94.2-7
 exim4-daemon-light==4.94.2-7
 expat==2.2.10-2+deb11u5
 fakeroot==1.25.3-1.1
-file==1:5.39-3
+file==1:5.39-3+deb11u1
 flex==2.6.4-8
 fontconfig==2.13.1-4.2
 fontconfig-config==2.13.1-4.2
@@ -246,7 +246,7 @@ libalgorithm-diff-xs-perl==0.04-6+b1
 libalgorithm-merge-perl==0.08-3
 libaliased-perl==0.34-1.1
 libann0==1.1.2+doc-7
-libaom0==1.0.0.errata1-3
+libaom0==1.0.0.errata1-3+deb11u1
 libaopalliance-java==20070526-6
 libapache-pom-java==18-1
 libapiguardian-java==1.1.0-2
@@ -568,7 +568,7 @@ libfile-touch-perl==0.11-1
 libfile-which-perl==1.23-1
 libfl-dev==2.6.4-8
 libfl2==2.6.4-8
-libflac8==1.3.3-2+deb11u1
+libflac8==1.3.3-2+deb11u2
 libflite1==2.2-2
 libfont-afm-perl==1.20-3
 libfont-ttf-perl==1.06-1.1
@@ -664,6 +664,8 @@ libharfbuzz0b==2.7.4-1
 libhash-fieldhash-perl==0.15-1+b3
 libhawtjni-runtime-java==1.17-1
 libheif1==1.11.0-1
+libhiredis-dev==0.14.1-1
+libhiredis0.14==0.14.1-1
 libhtml-form-perl==6.07-1
 libhtml-format-perl==2.12-1.1
 libhtml-html5-entities-perl==0.004-1.1
@@ -748,13 +750,14 @@ libjs-popper.js==1.16.1+ds-3
 libjs-sizzle==2.3.5+ds-2
 libjs-sphinxdoc==3.4.3-2
 libjs-underscore==1.9.1~dfsg-3
-libjson-c-dev==0.15-2
-libjson-c5==0.15-2
+libjson-c-dev==0.15-2+deb11u1
+libjson-c5==0.15-2+deb11u1
 libjson-glib-1.0-0==1.6.2-1
 libjson-glib-1.0-common==1.6.2-1
 libjson-maybexs-perl==1.004003-1
 libjson-perl==4.03000-1
 libjson-xs-perl==4.030-1+b1
+libjsoncpp-dev==1.9.4-4
 libjsoncpp24==1.9.4-4
 libjsp-api-java==2.3.4-3
 libjsr305-java==0.1~+svn49-11
@@ -805,8 +808,8 @@ liblwp-protocol-https-perl==6.10-1
 liblzma-dev==5.2.5-2.1~deb11u1
 liblzo2-2==2.10-2
 liblzo2-dev==2.10-2
-libmagic-mgc==1:5.39-3
-libmagic1==1:5.39-3
+libmagic-mgc==1:5.39-3+deb11u1
+libmagic1==1:5.39-3+deb11u1
 libmagickcore-6.q16-6==8:6.9.11.60+dfsg-1.3+deb11u1
 libmagickcore-6.q16-6-extra==8:6.9.11.60+dfsg-1.3+deb11u1
 libmagickwand-6.q16-6==8:6.9.11.60+dfsg-1.3+deb11u1
@@ -1072,8 +1075,8 @@ librhash0==1.4.1-2
 librole-tiny-perl==2.002004-1
 librrd-dev==1.7.2-3+b7
 librrd8==1.7.2-3+b7
-librsvg2-2==2.50.3+dfsg-1
-librsvg2-common==2.50.3+dfsg-1
+librsvg2-2==2.50.3+dfsg-1+deb11u1
+librsvg2-common==2.50.3+dfsg-1+deb11u1
 librtmp1==2.4+20151223.gitfa8646d.1-2+b2
 librubberband2==1.9.0-1
 libruby2.7==2.7.4-1+deb11u1
@@ -1255,9 +1258,9 @@ libwayland-cursor0==1.18.0-2~exp1.1
 libwayland-dev==1.18.0-2~exp1.1
 libwayland-egl1==1.18.0-2~exp1.1
 libwayland-server0==1.18.0-2~exp1.1
-libwebp6==0.6.1-2.1+deb11u1
-libwebpdemux2==0.6.1-2.1+deb11u1
-libwebpmux3==0.6.1-2.1+deb11u1
+libwebp6==0.6.1-2.1+deb11u2
+libwebpdemux2==0.6.1-2.1+deb11u2
+libwebpmux3==0.6.1-2.1+deb11u2
 libwebsocket-api-java==1.1-2
 libwmf0.2-7==0.2.8.4-17
 libwoff1==1.0.2-1+b1
@@ -1445,6 +1448,7 @@ ncurses-term==6.2+20201114-2+deb11u1
 netbase==6.3
 netpbm==2:10.0-15.4
 nftables==0.9.8-3.1+deb11u1
+nlohmann-json3-dev==3.9.1-1
 node-jquery==3.5.1+dfsg+~3.5.5-7
 ocl-icd-libopencl1==2.2.14-2
 openjade==1.4devel1-22

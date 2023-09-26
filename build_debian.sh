@@ -33,7 +33,7 @@ CONFIGURED_ARCH=$([ -f .arch ] && cat .arch || echo amd64)
 ## docker engine version (with platform)
 DOCKER_VERSION=5:24.0.2-1~debian.11~$IMAGE_DISTRO
 CONTAINERD_IO_VERSION=1.6.21-1
-LINUX_KERNEL_VERSION=5.10.0-18-2
+LINUX_KERNEL_VERSION=5.10.0-23-2
 
 ## Working directory to prepare the file system
 FILESYSTEM_ROOT=./fsroot
@@ -113,7 +113,8 @@ sudo LANG=C chroot $FILESYSTEM_ROOT mount
 ## Pointing apt to public apt mirrors and getting latest packages, needed for latest security updates
 scripts/build_mirror_config.sh files/apt $CONFIGURED_ARCH $IMAGE_DISTRO
 sudo cp files/apt/sources.list.$CONFIGURED_ARCH $FILESYSTEM_ROOT/etc/apt/sources.list
-sudo cp files/apt/apt.conf.d/{81norecommends,apt-{clean,gzip-indexes,no-languages},no-check-valid-until,apt-multiple-retries} $FILESYSTEM_ROOT/etc/apt/apt.conf.d/
+sudo cp files/apt/apt-retries-count $FILESYSTEM_ROOT/etc/apt/apt.conf.d/
+sudo cp files/apt/apt.conf.d/{81norecommends,apt-{clean,gzip-indexes,no-languages},no-check-valid-until} $FILESYSTEM_ROOT/etc/apt/apt.conf.d/
 
 ## Note: set lang to prevent locale warnings in your chroot
 sudo LANG=C chroot $FILESYSTEM_ROOT apt-get -y update
@@ -296,7 +297,7 @@ then
     install_kubernetes ${MASTER_KUBERNETES_VERSION}
 
     sudo LANG=C chroot $FILESYSTEM_ROOT apt-get update
-    sudo LANG=C chroot $FILESYSTEM_ROOT apt-get -y install hyperv-daemons gnupg xmlstarlet
+    sudo LANG=C chroot $FILESYSTEM_ROOT apt-get -y install hyperv-daemons gnupg xmlstarlet parted
     sudo LANG=C chroot $FILESYSTEM_ROOT apt-get -y remove gnupg
     sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT curl -o /tmp/cri-dockerd.deb -fsSL \
         https://github.com/Mirantis/cri-dockerd/releases/download/v${MASTER_CRI_DOCKERD}/cri-dockerd_${MASTER_CRI_DOCKERD}.3-0.debian-${IMAGE_DISTRO}_amd64.deb
@@ -406,6 +407,10 @@ sudo tee ${FILESYSTEM_ROOT}/etc/systemd/system/auditd.service.d/log-directory.co
 LogsDirectory=audit
 LogsDirectoryMode=0750
 EOF
+
+# latest tcpdump control resource access with AppArmor.
+# override tcpdump profile to allow tcpdump access TACACS config file.
+sudo cp files/apparmor/usr.bin.tcpdump $FILESYSTEM_ROOT/etc/apparmor.d/local/usr.bin.tcpdump
 
 if [[ $CONFIGURED_ARCH == amd64 ]]; then
 ## Pre-install the fundamental packages for amd64 (x86)

@@ -39,7 +39,7 @@ ebtables==2.0.11-4+b1
 efibootmgr==17-1
 efitools==1.9.2-2~deb11u1
 fdisk==2.36.1-8+deb11u1
-file==1:5.39-3
+file==1:5.39-3+deb11u1
 firmware-amd-graphics==20210315-3
 firmware-linux-nonfree==20210315-3
 firmware-misc-nonfree==20210315-3
@@ -67,7 +67,7 @@ grub2-common==2.06-3~deb11u5
 haveged==1.9.14-1
 hdparm==9.60+ds-1
 hping3==3.a2.ds2-10
-hw-management==1.mlnx.7.0020.4301
+hw-management==1.mlnx.7.0030.1011
 i2c-tools==4.2-1+b1
 ifmetric==0.3-5
 ifupdown2==3.0.0-1
@@ -82,7 +82,7 @@ isc-dhcp-client==4.4.1-2.3+deb11u2
 iso-codes==4.6.0-1
 jq==1.6-2.1
 kdump-tools==1:1.6.8.4
-kernel-mft-dkms-modules-5.10.0-18-2-amd64==4.25.0
+kernel-mft-dkms-modules-5.10.0-23-2-amd64==4.25.0
 kexec-tools==1:2.0.20-2.1
 klibc-utils==2.0.8-6.1
 kmod==28-1
@@ -157,7 +157,7 @@ libitm1==10.2.1-6
 libjansson4==2.13.1-1.1
 libjq1==1.6-2.1
 libjs-jquery==3.5.1+dfsg+~3.5.5-7
-libjson-c5==0.15-2
+libjson-c5==0.15-2+deb11u1
 libk5crypto3==1.18.3-6+deb11u1+fips
 libklibc==2.0.8-6.1
 libkmod2==28-1
@@ -167,8 +167,8 @@ liblognorm5==2.0.5-1.1
 liblsan0==10.2.1-6
 liblua5.1-0==5.1.5-8.1+b3
 liblzo2-2==2.10-2
-libmagic-mgc==1:5.39-3
-libmagic1==1:5.39-3
+libmagic-mgc==1:5.39-3+deb11u1
+libmagic1==1:5.39-3+deb11u1
 libmd0==1.0.3-3
 libmnl0==1.0.4-3
 libmpc3==1.2.0-1
@@ -243,7 +243,7 @@ libyang==1.0.73
 libyang-cpp==1.0.73
 libzmq5==4.3.4-1
 linux-base==4.6
-linux-image-5.10.0-18-2-amd64-unsigned==5.10.140-1
+linux-image-5.10.0-23-2-amd64-unsigned==5.10.179-3
 linux-perf==5.10.191-1
 linux-perf-5.10==5.10.191-1
 locales==2.31-13+deb11u6
@@ -317,7 +317,7 @@ sonic-utilities-data==1.0-1
 sqlite3==3.34.1-3
 squashfs-tools==1:4.4-2+deb11u2
 sudo==1.9.5p2-3+deb11u1
-sx-kernel==1.mlnx.4.6.1020
+sx-kernel==1.mlnx.4.6.1062
 symcrypt-openssl==0.1
 sysfsutils==2.1.0+repack-7
 sysstat==12.5.2-2
